@@ -7,11 +7,15 @@
     z-index: 2;
     background-color: white;
 
+
+
 }
 .nav-item{
     color: black;
-    font-size: xx-large;
+    font-size: 4vw;
     text-decoration: none;
+    font-family: "Bodoni MT Poster Compressed", sans-serif;
+
 }
 /****Footer Styling***/
 .app-footer{
@@ -34,6 +38,7 @@
 
 .content-container{
     display: flex;
+    flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
 
@@ -42,14 +47,58 @@
     bottom: 120px;
     left: 0;
     right: 0;
-
+    font-family: "Bodoni MT Poster Compressed", sans-serif;
 }
 .content-container p{
     font-size: 3vw;
 }
 h1{
     text-align: center;
+    font-family: "Bodoni MT Poster Compressed", sans-serif;
+}
+/******Contact Form*****/
+.contact-form{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    font-family: "Bodoni MT Poster Compressed", sans-serif;
 }
 
+.email-input,
+.subject-input{
+    font-size: large;
+    text-align: center;
+    padding: 12px 10px 12px 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border:2px solid black;
+
+}
+.email-input{
+    width: 50vw;
+
+}
+.contact-form textarea{
+    resize: none;
+    text-align: left;
+    width: 50vw;
+    height: 30vh;
+    font-family: "Bodoni MT Poster Compressed", sans-serif;
+    padding: 12px 10px 12px 10px;
+
+    border:2px solid black;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+
+}
+.submit{
+    margin-top: 15px;
+    padding: 14px 7px 14px 7px;
+    border-radius: 8px 6px 8px 6px;
+    font-size: large;
+
+    background-color: ;
+}
 
 
