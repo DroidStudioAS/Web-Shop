@@ -8,8 +8,9 @@
 </head>
 <header>
     <nav class="nav_container">
-        <a href="/contact" class="nav_item">Contact</a
-        ><a href="/shop" class="nav_item">Shop</a>
+        <a href="/" class="nav-item">Home</a>
+        <a href="/contact" class="nav_item">Contact</a>
+        <a href="/shop" class="nav_item">Shop</a>
         <a href="/about" class="nav_item">About</a>
     </nav>
 </header>
