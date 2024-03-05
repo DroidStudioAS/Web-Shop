@@ -1,4 +1,7 @@
 @extends("legend")
+@section('title')
+    Home
+@endsection
 
 @section("content")
 <p>Current Time: {{ date('H:i:s') }}</p>
