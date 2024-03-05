@@ -4,7 +4,9 @@
 @endsection
 
 @section("content")
-<p>Current Time: {{ date('H:i:s') }}</p>
+    <div class="content-container">
+        <p>Current Time: {{ date('H:i:s') }}</p>
+    </div>
 <script>
     function refreshTime(){
         let timeElement = document.querySelector("p");

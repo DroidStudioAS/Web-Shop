@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<footer>
-    hey there
+<footer class="app-footer">
+    Copyright &copy
 </footer>
 </html>
