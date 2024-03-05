@@ -20,19 +20,21 @@
 /****Footer Styling***/
 .app-footer{
     display: flex;
+    flex-flow:column nowrap;
     justify-content: space-evenly;
     align-items: center;
 
 
     font-size: 2vw;
 
-    height: 100px;
     background-color: white;
 
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
+
+
 }
 /*****Content Styling*****/
 
@@ -44,10 +46,14 @@
 
     position: absolute;
     top: 120px;
-    bottom: 120px;
     left: 0;
     right: 0;
+    bottom: 100px;
     font-family: "Bodoni MT Poster Compressed", sans-serif;
+    background-color: #f5f7fb;
+
+
+
 }
 .content-container p{
     font-size: 3vw;
@@ -91,6 +97,8 @@ h1{
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 
+    font-size: large;
+
 }
 .submit{
     margin-top: 15px;
@@ -98,7 +106,8 @@ h1{
     border-radius: 8px 6px 8px 6px;
     font-size: large;
 
-    background-color: ;
+    background-color: white;
 }
+
 
 

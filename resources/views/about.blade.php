@@ -5,9 +5,8 @@
 @endsection
     @extends("legend")
     @section('content')
-        <h1>This is an about page</h1>
         <div class="content-container">
-
+            <h1>This is an about page</h1>
         </div>
     @endsection
 </html>

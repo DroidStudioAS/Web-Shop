@@ -15,6 +15,7 @@
             <textarea placeholder="Your Message"></textarea>
             <input class="submit" type="submit">
         </form>
+
     </div>
 @endsection
 

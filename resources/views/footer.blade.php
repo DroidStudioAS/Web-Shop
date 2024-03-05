@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-<footer class="app-footer">
-    Copyright &copy
-</footer>
+    <div class="app-footer">
+        Copyright &copy
+
+    </div>
 </html>

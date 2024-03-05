@@ -14,7 +14,8 @@
     @yield("content")
     <!--Content space-->
     </body>
-    <footer>
+
+    <footer class="app-footer">
         @include('footer')
     </footer>
 </html>
