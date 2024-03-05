@@ -19,3 +19,4 @@ Route::get('/', function () {
 Route::view("/about",'about');
 Route::view("/shop",'shop');
 Route::view("/contact",'contact');
+

@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>This is an about page</h1>
-</body>
+    @extends("legend")
+    @section('content')
+        <h1>This is an about page</h1>
+    @endsection
 </html>
