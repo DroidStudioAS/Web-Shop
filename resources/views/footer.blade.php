@@ -1,7 +1,16 @@
 <!doctype html>
 <html lang="en">
-    <div class="app-footer">
-        Copyright &copy
+<div class="app-footer">
+    Copyright &copy;
+</div>
+<script>
+    let currentUrl = window.location.href;
+    console.log(currentUrl);
 
-    </div>
+    if(currentUrl.includes("contact")){
+        let footer = document.querySelector(".app-footer");
+        footer.className="contact-footer"
+
+    }
+</script>
 </html>
