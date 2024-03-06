@@ -5,11 +5,12 @@
 
 @section("content")
     <div class="content-container">
-        <p>Current Time: {{ $currentTime }}</p>
+        <p>@if($hours<12)Good Morning! @else Good Afternoon! @endif</p>
+        <p class="time">Current Time: {{ $hours . ":" .$minutes . ":" . $seconds }}</p>
     </div>
 <script>
     function refreshTime(){
-        let timeElement = document.querySelector("p");
+        let timeElement = document.querySelector(".time");
         let currentTime = new Date();
         let hours = currentTime.getHours();
         let minutes = currentTime.getMinutes();
