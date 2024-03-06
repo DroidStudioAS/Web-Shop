@@ -5,7 +5,7 @@
 
 @section("content")
     <div class="content-container">
-        <p>Current Time: {{ date('H:i:s') }}</p>
+        <p>Current Time: {{ $currentTime }}</p>
     </div>
 <script>
     function refreshTime(){
