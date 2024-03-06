@@ -13,10 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //welcome stranica
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[\App\Http\Controllers\HomeController::class, 'index']);
 Route::view("/about",'about');
-Route::view("/shop",'shop');
-Route::view("/contact",'contact');
+Route::get("/shop", [\App\Http\Controllers\ShopController::class, 'index']);
+//index is the name of the function to load
+Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'index']);
 
