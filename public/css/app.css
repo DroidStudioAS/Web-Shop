@@ -13,29 +13,19 @@
     font-size: 4vw;
     text-decoration: none;
     font-family: "Bodoni MT Poster Compressed", sans-serif;
+    transition: transform 0.3s ease;
+
+}
+
+.nav-item:hover {
+    text-decoration: underline;
+    transform: scale(1.1);
+
 
 }
 
 /****Footer Styling***/
-.app-footer {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-evenly;
-    align-items: center;
-
-
-    font-size: 2vw;
-
-    background-color: white;
-    z-index: 0;
-
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100px;
-}
-
+.app-footer,
 .contact-footer {
     display: flex;
     flex-flow: column nowrap;
@@ -43,16 +33,25 @@
     align-items: center;
 
 
-    font-size: 2vw;
+    font-size: xx-large;
 
-    background-color: white;
-    z-index: 0;
+    background-color: #6ccddc;
+    color: white;
 
     position: absolute;
-    bottom: -90vh;
+    bottom: 0;
     left: 0;
     right: 0;
     height: 100px;
+
+}
+
+.contact-footer {
+    bottom: -10vw;
+    left: 0;
+    right: 0;
+    height: 300px;
+    justify-content: flex-end;
 }
 
 /*****Content Styling*****/
@@ -67,7 +66,8 @@
     left: 0;
     right: 0;
     font-family: "Bodoni MT Poster Compressed", sans-serif;
-    background-color: #f5f7fb;
+    background-color: #6ccddc;
+    color: white;
     z-index: 1;
 }
 
@@ -75,28 +75,19 @@
     font-size: 3vw;
 }
 
-.contact__sub__container {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    align-items: center;
 
+
+.map-container {
+    border: 3px solid black;
+    border-radius: 8px;
 }
 
-.location-data {
-    margin-left: 50px;
-    width: 40vw;
-    font-family: "Bodoni MT Poster Compressed", sans-serif;
-    display: flex;
-    flex-flow: column nowrap;
-
-    font-size: xx-large;
-
+.map-container iframe {
+    width: 20vw;
+    height: 20vh;
 }
 
-.location-data p {
-    font-size: xx-large;
-}
+
 
 h1 {
     text-align: center;
@@ -104,65 +95,143 @@ h1 {
 }
 
 /******Contact Form*****/
-.contact-form {
+.back-image {
+    width: 98vw;
+    height: 80vh;
+}
+
+.form-container {
+    background-color: black;
+    width: 70vw;
+    height: 60vh;
+
+    position: absolute;
+    top: 12vh;
+
+    display: flex;
+    flex-flow: row wrap;
+
+    border-radius: 8px 6px 8px 6px;
+
+    padding: 10px;
+}
+
+.form {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    font-family: "Bodoni MT Poster Compressed", sans-serif;
+    width: 45vw;
+
 }
 
+.data {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 25vw;
+}
+
+.subject-input,
 .email-input,
-.subject-input {
-    font-size: large;
-    text-align: center;
+.form textarea {
+    width: 40vw;
     padding: 12px 10px 12px 10px;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    border: 2px solid black;
-
-}
-
-.email-input {
-    width: 50vw;
-
-}
-
-.subject-input {
-    width: 30vw;
-}
-
-.contact-form textarea {
-    resize: none;
-    text-align: left;
-    width: 50vw;
-    height: 30vh;
+    background-color: black;
+    border-bottom: 3px solid #6ccddc;
+    color: white;
+    border-radius: 4px 6px 4px 6px;
+    font-size: large;
     font-family: "Bodoni MT Poster Compressed", sans-serif;
-    padding: 12px 10px 12px 10px;
 
-    border: 2px solid black;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-
-    font-size: large;
 
 }
+
+.form textarea {
+    resize: none;
+    height: 20vh;
+}
+
+.data h2 {
+    color: #6ccddc;
+    text-align: center;
+}
+
+.data p {
+    color: white;
+    font-size: large;
+}
+
+
+
+
+
 
 .submit {
     margin-top: 15px;
-    padding: 14px 7px 14px 7px;
+    padding: 20px;
     border-radius: 8px 6px 8px 6px;
     font-size: large;
-    background-color: white;
+    background-color: #6ccddc;
+    color: white;
+
+
 }
 
-@media (max-width: 600px) {
-    .contact__sub__container {
+@media (max-width: 800px) {
+    .form-container {
         flex-flow: column nowrap;
-    }
-    .location-data{
-        margin-left: 0;
+        align-items: center;
+        height: 88vh;
+        width: 90vw;
+        top: 10vh;
     }
 
+    .form {
+        width: 70vw;
+        margin-top: 10px;
+    }
 
+    .subject-input,
+    .email-input,
+    .form textarea {
+        width: 60vw;
+    }
+
+    .data {
+        width: 90vw;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .data h2 {
+        font-size: xx-large;
+    }
+
+    .data p {
+        font-size: x-large;
+    }
+
+    .map-container {
+        width: 60vw;
+        position: absolute;
+        left: 15vw;
+        bottom: 1vh;
+
+    }
+
+    .map-container iframe {
+        width: 60vw;
+        ;
+    }
+
+    .back-image {
+        height: 100vh;
+    }
+
+    .contact-footer {
+        position: absolute;
+        bottom: -30vh;
+    }
 }
