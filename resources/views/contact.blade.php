@@ -10,9 +10,9 @@
     <img class="back-image" src="{{ asset('back.jpg') }}" alt="Image">
     <div class="form-container">
         <form class="form">
-            <input class="subject-input" type="text" placeholder="subject">
-            <input class="email-input" type="email" placeholder="email">
-            <textarea placeholder="Your Message"></textarea>
+            <input name="subject" class="subject-input" type="text" placeholder="subject">
+            <input name="email" class="email-input" type="email" placeholder="email">
+            <textarea name="message" placeholder="Your Message"></textarea>
             <input class="submit" type="submit">
         </form>
         <div class="data">
