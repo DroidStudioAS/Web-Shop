@@ -18,4 +18,5 @@ Route::view("/about",'about');
 Route::get("/shop", [\App\Http\Controllers\ShopController::class, 'index']);
 //index is the name of the function to load
 Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'index']);
-
+//Route::view('/admin/contact', 'admin');
+Route::get('/admin/contact', [\App\Http\Controllers\ContactController::class, 'admin']);
