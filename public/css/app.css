@@ -1,4 +1,4 @@
-/***Nav Styles****/
+/***GLOBAL Styles start****/
 .nav-container {
     display: flex;
     justify-content: space-evenly;
@@ -6,11 +6,12 @@
     height: 120px;
     z-index: 2;
     background-color: white;
+
 }
 
 .nav-item {
     color: black;
-    font-size: 4vw;
+    font-size: 2vw;
     text-decoration: none;
     font-family: "Bodoni MT Poster Compressed", sans-serif;
     transition: transform 0.3s ease;
@@ -62,7 +63,7 @@
     align-items: center;
 
     position: absolute;
-    top: 120px;
+    top: 130px;
     left: 0;
     right: 0;
     font-family: "Bodoni MT Poster Compressed", sans-serif;
@@ -94,7 +95,10 @@ h1 {
     font-family: "Bodoni MT Poster Compressed", sans-serif;
 }
 
-/******Contact Form*****/
+/***GLOBAL Styles END****/
+
+
+/*******Contact Page START********/
 .back-image {
     width: 98vw;
     height: 80vh;
@@ -234,4 +238,8 @@ h1 {
         position: absolute;
         bottom: -30vh;
     }
+
+    /*******Contact Page END********/
+
+
 }
