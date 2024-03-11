@@ -16,13 +16,9 @@ class HomeController extends Controller
         //return view('welcome', $data);
         //if returning a single value, this is better
         $last6products = ProductModel::orderByDesc("id")->take(6)->get();
-        $viewData = [
-            'data' => $data,
-            'last6products' => $last6products
-        ];
 
 
-        return view('welcome', $viewData);
+        return view('welcome', compact("data", 'last6products'));
 
         //dd($hours), very useful debug method, that does a var dump and then closes the connection
     }

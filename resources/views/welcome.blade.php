@@ -5,8 +5,9 @@
 
 @section("content")
     <div class="content-container">
+
         <p>@if($data['hours']<12)Good Morning! @else Good Afternoon! @endif</p>
-       <p class="time">Current Time: {{$data['hours'] . ":" . $data['minutes'] . ":" . $data['seconds']}} </p>
+        <p class="time">Current Time: {{$data['hours'] . ":" . $data['minutes'] . ":" . $data['seconds']}} </p>
 
         <div class="category-container">
             @foreach($last6products as $product)
