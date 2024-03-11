@@ -20,3 +20,4 @@ Route::get("/shop", [\App\Http\Controllers\ShopController::class, 'index']);
 Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'index']);
 //Route::view('/admin/contact', 'admin');
 Route::get('/admin/contact', [\App\Http\Controllers\ContactController::class, 'admin']);
+

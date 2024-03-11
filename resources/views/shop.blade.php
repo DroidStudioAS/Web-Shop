@@ -11,15 +11,14 @@
             This Is A Shop Page
         </h1>
         <div class="category-container">
-            @foreach($categories as $category)
+            @foreach($products as $product)
                 <div class="product-category">
-                    <h3>{{$category->category_name}}</h3>
+                    <h3>{{$product->product_name}}</h3>
                     <img src="{{ asset('tn.png') }}" alt="placeholder">
                     <input type="submit" class="submit" value="Browse"/>
                 </div>
             @endforeach
         </div>
-
     </div>
 @endsection
 </html>
