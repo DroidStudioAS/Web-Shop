@@ -9,7 +9,13 @@
     <h1> Contact Us </h1>
     <img class="back-image" src="{{ asset('back.jpg') }}" alt="Image">
     <div class="form-container">
-        <form class="form">
+        @if($errors->any())
+
+            <p>{{$errors->first()}}</p>
+
+        @endif
+        <form class="form" action="/send-message" method="POST">
+            {{csrf_field()}}
             <input name="subject" class="subject-input" type="text" placeholder="subject">
             <input name="email" class="email-input" type="email" placeholder="email">
             <textarea name="message" placeholder="Your Message"></textarea>

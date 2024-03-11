@@ -14,4 +14,24 @@ class ContactController extends Controller
         $contacts = ContactModel::all();
         return view('admin', compact('contacts'));
     }
+    //illuminiate/http/request
+    public function sendMessage(Request $request){
+        $request->validate([
+            "subject"=> "required|string",
+            "email"=> "required|string",
+            "message"=>"required|string|min:5"
+        ]);
+
+      ContactModel::create([
+          "email"=>$request->get("email"),
+          "subject"=>$request->get('subject'),
+          "message"=>$request->get("message")
+      ]);
+
+
+      return redirect("/shop");
+
+
+    }
+
 }
