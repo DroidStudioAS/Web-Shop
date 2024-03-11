@@ -36,16 +36,19 @@
         align-items: center;
         justify-content: space-around;
         flex-flow: column nowrap;
-        font-size: xx-large;
+        font-size: large;
         border:2px white solid;
         border-radius: 8px 6px 8px 6px;
         padding: 20px;
         width: 20vw;
 
+        text-align: center;
+        height: 50vh;
+        min-width: 200px;
+
     }
     .product-category img{
-        margin: 30px;
-        width: 15vw;
+        width: 200px;
     }
 </style>
 
