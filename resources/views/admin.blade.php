@@ -8,20 +8,8 @@
     @extends('legend')
     @section('content')
         <div class="content-container">
-           <div>
-                @foreach($contacts as $contact)
-                    <div>
-                        {{$contact->email}}
-                    </div>
-                   <div>
-                       {{$contact->subject}}
-                   </div>
-                   <div>
-                       {{$contact->message}}
-                   </div>
-                @endforeach
-           </div>
             <div class="add-product-container">
+                <h3>Add A Product</h3>
                 <form method="POST" action="/admin/post" class="product-input-container">
                     @if($errors->any())
                         <p>{{$errors->first()}}</p>
@@ -39,11 +27,30 @@
                     <input class="submit" type="submit" value="Upload">
                 </form>
             </div>
+            <div class="contacts_container">
+                <h3>Contacts</h3>
+                <div>
+                    @foreach($contacts as $contact)
+                        <div>
+                            {{$contact->email}}
+                        </div>
+                        <div>
+                            {{$contact->subject}}
+                        </div>
+                        <div>
+                            {{$contact->message}}
+                        </div>
+                    @endforeach
+                </div>
+            </div>
         </div>
     @endsection
 </body>
 </html>
 <style>
+    .add-product-container h3{
+        text-align: center;
+    }
     .product-input-container{
         display: flex;
         flex-flow: column nowrap;
@@ -62,6 +69,9 @@
         font-size: large;
         font-family: "Bodoni MT Poster Compressed", sans-serif;
 
+        text-align: center;
+    }
+    .contacts_container{
         text-align: center;
     }
 </style>
