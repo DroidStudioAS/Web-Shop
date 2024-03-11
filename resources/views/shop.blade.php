@@ -15,7 +15,7 @@
                 <div class="product-category">
                     <h3>{{$category->category_name}}</h3>
                     <img src="{{ asset('tn.png') }}" alt="placeholder">
-                    <input type="submit" class="submit"/>
+                    <input type="submit" class="submit" value="Browse"/>
                 </div>
             @endforeach
         </div>
