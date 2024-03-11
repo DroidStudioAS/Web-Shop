@@ -12,7 +12,7 @@
                 <h3>Add A Product</h3>
                 <form method="POST" action="/admin/post" class="product-input-container">
                     @if($errors->any())
-                        <p>{{$errors->first()}}</p>
+                        <p class="error-message">{{$errors->first()}}</p>
                     @endif
                     {{csrf_field()}}
                     <select class="product_input_special" name="dropdown">
@@ -29,19 +29,19 @@
             </div>
             <div class="contacts_container">
                 <h3>Contacts</h3>
-                <div>
                     @foreach($contacts as $contact)
+                    <div class="message">
                         <div>
-                            {{$contact->email}}
+                            From: {{$contact->email}}
                         </div>
                         <div>
-                            {{$contact->subject}}
+                           Subject:  {{$contact->subject}}
                         </div>
                         <div>
-                            {{$contact->message}}
+                           Message: {{$contact->message}}
                         </div>
-                    @endforeach
-                </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     @endsection
@@ -57,6 +57,10 @@
         justify-content: center;
         align-items: center;
         text-align: center;
+        background: black;
+        padding: 30px;
+        border-radius: 8px 6px 8px 6px;
+
     }
     .product_input,
     .product_input_special{
@@ -70,8 +74,24 @@
         font-family: "Bodoni MT Poster Compressed", sans-serif;
 
         text-align: center;
+        margin: 10px;
+    }
+    .product_input_special{
+        width: 20vw;
+    }
+    .error-message{
+        color: red;
     }
     .contacts_container{
         text-align: center;
+    }
+
+    .message{
+        margin: 30px;
+        padding: 30px;
+        background: black;
+        border-radius: 4px 6px 4px 6px;
+        width: 40vw;
+
     }
 </style>
