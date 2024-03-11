@@ -54,6 +54,8 @@
         height: 60vh;
         min-width: 20vw;
 
+        margin: 20px;
+
     }
     .product-category img{
         width: 20vw;
