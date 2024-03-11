@@ -19,8 +19,13 @@ Route::get("/shop", [\App\Http\Controllers\ShopController::class, 'index']);
 //index is the name of the function to load
 Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'index']);
 //Route::view('/admin/contact', 'admin');
+
+//admin routes
 Route::get('/admin/contact', [\App\Http\Controllers\ContactController::class, 'admin']);
+Route::post('/admin/post', [\App\Http\Controllers\ShopController::class, "postProduct"]);
+
 
 //post routes
 Route::post("/send-message", [\App\Http\Controllers\ContactController::class, 'sendMessage']);
+
 
