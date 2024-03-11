@@ -18,7 +18,7 @@
                     <div class="product_content">
                         <div class="product_sub_content">
                             <p class="product_name">{{$product->product_name}}</p>
-                            <p class="product_description"> {{$product->product_description}} </p>
+                            <p class="product_description"> {{strlen($product->product_description)>100 ? substr($product->product_description, 0, 100) . "..." : $product->product_description}} </p>
                         </div>
 
                         <p>{{$product->product_price}}$</p>
