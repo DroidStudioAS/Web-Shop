@@ -10,7 +10,7 @@ class ContactController extends Controller
     public function index(){
         return view('contact');
     }
-    public function admin(){
+    public function showAllContacts(){
         $contacts = ContactModel::all();
         return view('admin', compact('contacts'));
     }
