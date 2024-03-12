@@ -39,7 +39,7 @@
                            Message: {{$contact->message}}
                         </div>
                         <div class="button_container">
-                            <div id="editButton" class="edit">
+                            <div onclick="makeFormVisible({{json_encode($contact)}})" id="editButton" class="edit">
                                 Edit
                             </div>
                             <div class="delete">
@@ -51,12 +51,15 @@
             </div>
 
             <div id="edit-form" class="edit-form">
-                <img id="closeButton" src="{{asset("/close.png")}}">
-                {{csrf_field()}}
-                <input value="{{old("product_name")}}" class="product_input" placeholder="Email" name="edit-email" type="text">
-                <input value="{{old("product_description")}}" class="product_input" placeholder="Subject" name="edit-subject" type="text">
-                <textarea class="product_input" placeholder="Message" name="edit-message"></textarea>
-                <input class="submit" type="submit" value="Upload">
+                <form style="display: flex; align-items: center; justify-content: center; flex-flow: column nowrap">
+                    <img id="closeButton" src="{{asset("/close.png")}}">
+                    {{csrf_field()}}
+                    <input id="edit-email" value="" class="product_input" placeholder="Email" name="edit-email" type="text">
+                    <input id="edit-subject" value="" class="product_input" placeholder="Subject" name="edit-subject" type="text">
+                    <textarea id="edit-message" class="product_input" placeholder="Message" name="edit-message"></textarea>
+                    <input class="submit" type="submit" value="Upload">
+                </form>
+
             </div>
         </div>
         <script>
@@ -64,9 +67,14 @@
             let editButton = $(".edit");
             let editForm = $("#edit-form")
 
-            editButton.off('click').on("click", function (){
+            function makeFormVisible(contact){
                 editForm.css("display","flex")
-            })
+                $("#edit-email").val(contact.email);
+                $("#edit-subject").val(contact.subject);
+                $("#edit-message").val(contact.message);
+
+            }
+
             closeButton.off('click').on('click',function(){
                 editForm.css("display", "none");
             });
