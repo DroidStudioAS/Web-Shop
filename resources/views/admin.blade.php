@@ -18,10 +18,10 @@
                         <option name="product_category_input" value="3">Adidas</option>
                         <option name="product_category_input" value="2">Rebook</option>
                     </select>
-                    <input class="product_input" placeholder="Model Name" name="product_name" type="text">
-                    <input class="product_input" placeholder="Model_Description" name="product_description" type="text">
-                    <input class="product_input" placeholder="How Many Available" name="product_amount" type="number">
-                    <input class="product_input" placeholder="Product Price" name="product_price" type="number">
+                    <input value="{{old("product_name")}}" class="product_input" placeholder="Model Name" name="product_name" type="text">
+                    <input value="{{old("product_description")}}" class="product_input" placeholder="Model_Description" name="product_description" type="text">
+                    <input value="{{old("product_amount")}}" class="product_input" placeholder="How Many Available" name="product_amount" type="number">
+                    <input value="{{old("product_price")}}" class="product_input" placeholder="Product Price" name="product_price" type="number">
                     <input class="submit" type="submit" value="Upload">
                 </form>
             </div>
