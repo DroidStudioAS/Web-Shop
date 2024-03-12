@@ -12,9 +12,16 @@
         <div class="category-container">
             @foreach($last6products as $product)
                 <div class="product-category">
-                    <h3>{{$product->product_name}}</h3>
                     <img src="{{ asset('tn.png') }}" alt="placeholder">
-                    <input type="submit" class="submit" value="Browse"/>
+                    <div class="product_content">
+                    <div class="product_sub_content">
+                        <p class="product_name">{{$product->product_name}}</p>
+                        <p class="product_description"> {{strlen($product->product_description)>100 ? substr($product->product_description, 0, 100) . "..." : $product->product_description}} </p>
+                    </div>
+                    <p>{{$product->product_price}}$</p>
+                    </div>
+
+
                 </div>
             @endforeach
         </div>
@@ -54,15 +61,29 @@
         font-size: large;
         border:2px white solid;
         border-radius: 8px 6px 8px 6px;
-        padding: 20px;
         width: 20vw;
 
         text-align: center;
-        height: 50vh;
-        min-width: 200px;
+        height: 60vh;
+        min-width: 20vw;
+
+        margin: 20px;
 
     }
     .product-category img{
-        width: 200px;
+        width: 20vw;
+        height: 40vh;
+    }
+    .product_content{
+        display: flex;
+        flex-flow:row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: left;
+        height: 20vh;
+    }
+    .product_name{
+        font-size: medium;
+        text-align: center;
     }
 </style>
