@@ -107,7 +107,7 @@
         justify-content: flex-start;
         align-items: start;
 
-        width: 5vw;
+        width: 3vw;
         opacity: 0;
 
         transition: 1s ease;
@@ -116,7 +116,7 @@
     }
     .action_button{
         height: 20vh;
-        width: 5vw;
+        width: 3vw;
         text-align: center;
 
         display: flex;
