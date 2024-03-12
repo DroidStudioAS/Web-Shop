@@ -25,7 +25,7 @@ Route::get('/admin', [\App\Http\Controllers\ContactController::class, 'showAllCo
 Route::post('/admin/post', [\App\Http\Controllers\ProductController::class, "postProduct"]);
 Route::get("/admin/all-products",[\App\Http\Controllers\ProductController::class,"index"])->name("all-products");
 Route::get("/admin/delete-product/{product}", [\App\Http\Controllers\ProductController::class, "deleteProduct"])->name("delete-product");
-Route::get("admin/delete-contact/{contact}",[\App\Http\Controllers\ContactController::class,"deleteContact"]);
+Route::get("admin/delete-contact/{contact}",[\App\Http\Controllers\ContactController::class,"deleteContact"])->name("delete-contact");
 
 //post routes
 Route::post("/send-message", [\App\Http\Controllers\ContactController::class, 'sendMessage']);

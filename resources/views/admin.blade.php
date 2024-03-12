@@ -43,7 +43,7 @@
                                 Edit
                             </div>
                             <div class="delete">
-                                <a href="/admin/delete-contact/{{$contact->id}}">Delete </a>
+                                <a href="{{route("delete-contact", ["contact"=>$contact->id])}}">Delete </a>
                             </div>
                         </div>
                     </div>
