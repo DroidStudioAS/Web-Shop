@@ -7,13 +7,12 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
+    /******Non Admin Functions********/
+
     public function index(){
         return view('contact');
     }
-    public function showAllContacts(){
-        $contacts = ContactModel::all();
-        return view('admin', compact('contacts'));
-    }
+
     //illuminiate/http/request
     public function sendMessage(Request $request){
         $request->validate([
@@ -30,8 +29,11 @@ class ContactController extends Controller
 
 
       return redirect("/shop");
-
-
+    }
+    /******Admin Functions********/
+    public function showAllContacts(){
+        $contacts = ContactModel::all();
+        return view('admin', compact('contacts'));
     }
     public function deleteContact($contact){
         $contactToDelete = ContactModel::where(['id'=>$contact]);
