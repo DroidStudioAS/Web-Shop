@@ -23,6 +23,7 @@ Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'index']
 //admin routes
 Route::get('/admin/contact', [\App\Http\Controllers\ContactController::class, 'admin']);
 Route::post('/admin/post', [\App\Http\Controllers\ShopController::class, "postProduct"]);
+Route::get("/admin/all-products",[\App\Http\Controllers\ProductController::class,"index"]);
 
 
 //post routes
