@@ -2,6 +2,7 @@
 @section("title")Admin Panel @endsection
 @section("content")
     <div class="content-container">
+        @include("admin-menu")
         <h1>All Products</h1>
         <div class="all_products_container">
 

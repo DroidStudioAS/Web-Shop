@@ -1,13 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
+
 <body>
     @extends('legend')
+    @section("title")Admin Panel @endsection
     @section('content')
         <div class="content-container">
+
+            @include("admin-menu")
             <div class="add-product-container">
                 <h3>Add A Product</h3>
                 <form method="POST" action="/admin/post" class="product-input-container">
