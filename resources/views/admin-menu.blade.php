@@ -1,7 +1,7 @@
 <h1>Admin Panel</h1>
 <nav class="admin_menu">
-    <a href="{{route('admin-panel')}}">Dashboard</a>
-    <a href="{{route('all-products')}}">View All Products</a>
+    <a class="nav-item" href="{{route('admin-panel')}}">Dashboard</a>
+    <a class="nav-item" href="{{route('all-products')}}">View All Products</a>
 
 </nav>
 <style>
