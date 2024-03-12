@@ -29,7 +29,7 @@ class ProductController extends Controller
         //validation
         $request->validate([
             "dropdown"=>"required|int",
-            "product_name"=>"required|string",
+            "product_name"=>"required|string|unique:products",
             "product_description"=>"required|string",
             "product_amount"=>"required|int",
             "product_price"=>"required|int"
