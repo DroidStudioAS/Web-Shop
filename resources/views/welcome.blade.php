@@ -16,7 +16,7 @@
                         <img src="{{asset("/tn.png")}}">
                         <div class="product_information">
                             <div class="desc_container">
-                                <p>{{$product->product_name}}</p>
+                                <p class="product_name">{{$product->product_name}}</p>
                                 <p>{{strlen($product->product_description)>100? substr($product->product_description,0,100)."..." : $product->product_description}}</p>
                             </div>
                             <div class="price_container">
@@ -94,6 +94,9 @@
         height: 20vh;
         width: 20vw;
         color: black;
+    }
+    .product_name{
+        font-weight: bold;
     }
     .desc_container{
         padding-left: 10px;

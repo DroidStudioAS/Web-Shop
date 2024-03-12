@@ -17,7 +17,7 @@
                         <img src="{{asset("/tn.png")}}">
                         <div class="product_information">
                             <div class="desc_container">
-                                <p>{{$product->product_name}}</p>
+                                <p class="product_">{{$product->product_name}}</p>
                                 <p>{{strlen($product->product_description)>100? substr($product->product_description,0,100)."..." : $product->product_description}}</p>
                             </div>
                             <div class="price_container">
