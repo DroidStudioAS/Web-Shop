@@ -86,4 +86,12 @@
         font-size: medium;
         text-align: center;
     }
+    @media (max-width: 850px) {
+        .product-category{
+            width: 70vw;
+        }
+        .product-category img{
+            width: 70vw;
+        }
+    }
 </style>
