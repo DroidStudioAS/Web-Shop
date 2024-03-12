@@ -43,6 +43,6 @@ class ProductController extends Controller
             "product_price"=>$request->get("product_price")
         ]);
 
-        return back();
+        return redirect(route("all-products"));
     }
 }
