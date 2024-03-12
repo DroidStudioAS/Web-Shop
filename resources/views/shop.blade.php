@@ -11,20 +11,31 @@
             This Is A Shop Page
         </h1>
         <div class="category-container">
-            @foreach($products as $product)
-                <div class="product-category">
-
-                    <img src="{{ asset('tn.png') }}" alt="placeholder">
-                    <div class="product_content">
-                        <div class="product_sub_content">
-                            <p class="product_name">{{$product->product_name}}</p>
-                            <p class="product_description"> {{strlen($product->product_description)>100 ? substr($product->product_description, 0, 100) . "..." : $product->product_description}} </p>
+           @foreach($products as $product)
+                <div class="full_container">
+                    <div class="column_container">
+                        <img src="{{asset("/tn.png")}}">
+                        <div class="product_information">
+                            <div class="desc_container">
+                                <p>{{$product->product_name}}</p>
+                                <p>{{strlen($product->product_description)>100? substr($product->product_description,0,100)."..." : $product->product_description}}</p>
+                            </div>
+                            <div class="price_container">
+                                {{$product->product_price}}$
+                            </div>
                         </div>
 
-                        <p>{{$product->product_price}}$</p>
+                    </div>
+                    <div class="action_buttons">
+                        <div class="action_button">
+                            <img src="{{asset("/icon_cart.png")}}">
+                        </div>
+                        <div class="action_button">
+                            <img src="{{asset("/icon_info.png")}}">
+                        </div>
                     </div>
                 </div>
-            @endforeach
+           @endforeach
 
 
         </div>
@@ -40,45 +51,76 @@
         width: 80vw;
         padding: 20px;
     }
-    .product-category{
+    .full_container{
         display: flex;
-        align-items: center;
-        justify-content: space-around;
-        flex-flow: column nowrap;
-        font-size: large;
-        border:2px white solid;
-        border-radius: 8px 6px 8px 6px;
-        width: 20vw;
-
-        text-align: center;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        width: 25vw;
         height: 60vh;
-        min-width: 20vw;
-
-        margin: 20px;
-
+        margin: 10px;
     }
-    .product-category img{
+    .column_container{
+        width: 20vw;
+        height: 60vh;
+        background-color: white;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    .column_container img{
         width: 20vw;
         height: 40vh;
+        min-width: 20vw;
     }
-    .product_content{
+    .product_information{
         display: flex;
         flex-flow:row nowrap;
-        justify-content: flex-start;
         align-items: center;
-        text-align: left;
+        justify-content: flex-start;
         height: 20vh;
+        width: 20vw;
+        color: black;
     }
-    .product_name{
-        font-size: medium;
+    .desc_container{
+        padding-left: 10px;
+    }
+    .action_buttons {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: start;
+
+        width: 5vw;
+        opacity: 0;
+
+        transition: 1s ease;
+
+        background-color: #1a202c;
+    }
+    .action_button{
+        height: 20vh;
+        width: 5vw;
         text-align: center;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
     }
+    .full_container:hover .action_buttons{
+        display: flex;
+        opacity: 1;
+    }
+
     @media (max-width: 850px) {
-        .product-category{
+        .full_container {
             width: 70vw;
         }
-        .product-category img{
+
+        .product-category img {
             width: 70vw;
         }
+    }
 </style>
 
