@@ -39,7 +39,7 @@
                            Message: {{$contact->message}}
                         </div>
                         <div class="button_container">
-                            <div class="edit">
+                            <div id="editButton" class="edit">
                                 Edit
                             </div>
                             <div class="delete">
@@ -49,10 +49,31 @@
                     </div>
                 @endforeach
             </div>
+
+            <div id="edit-form" class="edit-form">
+                <img id="closeButton" src="{{asset("/close.png")}}">
+                {{csrf_field()}}
+                <input value="{{old("product_name")}}" class="product_input" placeholder="Email" name="edit-email" type="text">
+                <input value="{{old("product_description")}}" class="product_input" placeholder="Subject" name="edit-subject" type="text">
+                <textarea class="product_input" placeholder="Message" name="edit-message"></textarea>
+                <input class="submit" type="submit" value="Upload">
+            </div>
         </div>
+        <script>
+            let closeButton = $("#closeButton");
+            let editButton = $(".edit");
+            let editForm = $("#edit-form")
+
+            editButton.off('click').on("click", function (){
+                editForm.css("display","flex")
+            })
+            closeButton.off('click').on('click',function(){
+                editForm.css("display", "none");
+            });
+
+        </script>
     @endsection
 </body>
-</html>
 <style>
     .add-product-container h3{
         text-align: center;
@@ -124,5 +145,31 @@
         font-size: large;
         background-color: red;
         color: white;
+    }
+
+    /*******Edit Form Styles*******/
+    .edit-form{
+
+        width: 70vw;
+        height: 80vh;
+        background-color: black;
+
+        position: fixed;
+        top: 10vh;
+        left: 15vw;
+
+        display: none;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .edit-form img{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+
+        background-color: white;
+        border-radius: 50px;
     }
 </style>
