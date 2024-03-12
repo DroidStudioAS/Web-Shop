@@ -31,14 +31,22 @@
                 <h3>Contacts</h3>
                     @foreach($contacts as $contact)
                     <div class="message">
-                        <div>
+                        <div class="message_row">
                             From: {{$contact->email}}
                         </div>
-                        <div>
+                        <div class="message_row">
                            Subject:  {{$contact->subject}}
                         </div>
-                        <div>
+                        <div class="message_row">
                            Message: {{$contact->message}}
+                        </div>
+                        <div class="button_container">
+                            <div class="edit">
+                                Edit
+                            </div>
+                            <div class="delete">
+                                <a href="/admin/delete-contact/{{$contact->id}}">Delete </a>
+                            </div>
                         </div>
                     </div>
                 @endforeach
@@ -92,6 +100,31 @@
         background: black;
         border-radius: 4px 6px 4px 6px;
         width: 40vw;
-
+    }
+    .message_row{
+        margin: 10px;
+        font-size: large;
+    }
+    .button_container{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+        width: 40vw;
+    }
+    .edit {
+        margin-top: 15px;
+        padding: 20px;
+        border-radius: 8px 6px 8px 6px;
+        font-size: large;
+        background-color: #6ccddc;
+        color: white;
+    }
+    .delete {
+        margin-top: 15px;
+        padding: 20px;
+        border-radius: 8px 6px 8px 6px;
+        font-size: large;
+        background-color: red;
+        color: white;
     }
 </style>
