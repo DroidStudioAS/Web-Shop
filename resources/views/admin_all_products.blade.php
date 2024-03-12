@@ -30,7 +30,8 @@
                 <div class="button_container">
                     <div class="edit">Edit</div>
                     <div class="delete">
-                        <a href="{{ route('delete-product', ['product' => $product->id]) }}">Delete Product</a>
+                        <a href="/admin/delete-product/{{$product->id}}">Delete Product</a>
+                        <!--Other way:<a href="{{ route('delete-product', ['product' => $product->id]) }}">Delete Product</a> -->
                     </div>
                 </div>
 
