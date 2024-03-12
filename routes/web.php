@@ -24,6 +24,7 @@ Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'index']
 Route::get('/admin/contact', [\App\Http\Controllers\ContactController::class, 'admin']);
 Route::post('/admin/post', [\App\Http\Controllers\ShopController::class, "postProduct"]);
 Route::get("/admin/all-products",[\App\Http\Controllers\ProductController::class,"index"]);
+Route::get("/admin/delete-product/{product}", [\App\Http\Controllers\ProductController::class, "deleteProduct"])->name("delete-product");
 
 
 //post routes

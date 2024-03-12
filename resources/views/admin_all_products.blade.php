@@ -1,4 +1,5 @@
 @extends("legend")
+@section("title")Admin Panel @endsection
 @section("content")
     <div class="content-container">
         <h1>All Products</h1>
@@ -28,7 +29,9 @@
                 </div>
                 <div class="button_container">
                     <div class="edit">Edit</div>
-                    <div class="delete">Delete</div>
+                    <div class="delete">
+                        <a href="{{ route('delete-product', ['product' => $product->id]) }}">Delete Product</a>
+                    </div>
                 </div>
 
             </div>

@@ -13,4 +13,16 @@ class ProductController extends Controller
 
         return view("admin_all_products", compact("products"));
     }
+    public function deleteProduct($product){
+
+        $singleProduct = ProductModel::where(['id'=>$product])->first();
+
+        if(!$singleProduct){
+            return redirect("/");
+        }
+
+        $singleProduct->delete();
+
+        return back();
+    }
 }
