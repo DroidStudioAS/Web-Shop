@@ -45,13 +45,7 @@ class ProductController extends Controller
 
         return redirect(route("all-products"));
     }
-    public function editProduct(Request $request, $productId){
-
-        $productToEdit=ProductModel::where(["id"=>$productId])->first();
-
-        if(!$productToEdit){
-            echo "failed to find product";
-        }
+    public function editProduct(Request $request, ProductModel $productToEdit){
 
         $request->validate([
             "category"=>"required|int",

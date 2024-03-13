@@ -44,14 +44,7 @@ class ContactController extends Controller
         $contactToDelete->delete();
         return back();
     }
-    public function editContact(Request $request, $contactId){
-        // Find the contact by its ID
-        $contactToEdit = ContactModel::where(['id'=>$contactId])->first();
-
-        if(!$contactToEdit){
-            echo "failed";
-        }
-
+    public function editContact(Request $request,ContactModel $contact){
         // Validate the request data
         $request->validate([
             "email" => "required|string",
@@ -60,12 +53,12 @@ class ContactController extends Controller
         ]);
 
         // Update the attributes of the contact
-        $contactToEdit->email = $request->input("email");
-        $contactToEdit->subject = $request->input("subject");
-        $contactToEdit->message = $request->input("message");
+        $contact->email = $request->input("email");
+        $contact->subject = $request->input("subject");
+        $contact->message = $request->input("message");
 
         // Save the changes to the contact
-        $contactToEdit->save();
+        $contact->save();
 
         echo "ok!";
     }
