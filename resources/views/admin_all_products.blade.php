@@ -1,6 +1,3 @@
-<head>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-</head>
 @extends("legend")
 @section("title")Admin Panel @endsection
 @section("content")
