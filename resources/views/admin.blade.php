@@ -10,7 +10,7 @@
                 <h3>Add A Product</h3>
                 <form method="POST" action="/admin/post" class="product-input-container">
                     @if($errors->any())
-                        <p class="error-message">{{$errors->first()}}</p>
+                        <p class="error-display">{{$errors->first()}}</p>
                     @endif
                     {{csrf_field()}}
                     <select class="product_input_special" name="dropdown">
