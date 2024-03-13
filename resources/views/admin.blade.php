@@ -1,4 +1,6 @@
-
+<head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+</head>
 <body>
     @extends('legend')
     @section("title")Admin Panel @endsection
@@ -97,8 +99,9 @@
 
                 $.ajax({
                     url:"/admin/editContact/"+ encodeURIComponent(contactId),
-                    type:"GET",
+                    type:"POST",
                     data:{
+                        "_token": $('meta[name="csrf-token"]').attr('content'), // Retrieve CSRF token from meta tag
                         "email":$("#edit-email").val(),
                         "subject":$("#edit-subject").val(),
                         "message":$("#edit-message").val()

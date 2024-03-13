@@ -1,3 +1,6 @@
+<head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+</head>
 @extends("legend")
 @section("title")Admin Panel @endsection
 @section("content")
@@ -43,6 +46,7 @@
                 <form id="editing-form" style="display: flex; align-items: center; justify-content: center; flex-flow: column nowrap">
                     <p class="error-display"></p>
                     <img id="closeButton" src="{{asset("/close.png")}}">
+                    @csrf
                     {{csrf_field()}}
                     <label for="dropdown">Category</label>
                     <select id="edit_category" class="product_input_special" name="dropdown">
@@ -96,8 +100,9 @@
 
                 $.ajax({
                 url:"/admin/editProduct/"+productId,
-                    type:"GET",
+                    type:"POST",
                     data:{
+                        "_token": $('meta[name="csrf-token"]').attr('content'), // Retrieve CSRF token from meta tag
                         "category": $("#edit_category").val(),
                         "name":$("#edit_name").val(),
                         "description":$("#edit_desc").val(),

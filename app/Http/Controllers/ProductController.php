@@ -72,4 +72,7 @@ class ProductController extends Controller
         echo "ok!";
 
     }
+    public function test(){
+        echo "ok";
+    }
 }
