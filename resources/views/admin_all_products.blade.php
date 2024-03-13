@@ -197,7 +197,7 @@
     .edit-form{
 
         width: 60vw;
-        height: 90vh;
+        height: 93vh;
         background-color: black;
 
         position: fixed;
