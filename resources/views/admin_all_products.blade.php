@@ -29,7 +29,7 @@
                     </h6>
                 </div>
                 <div class="button_container">
-                    <div onclick="logger({{json_encode($product)}})" class="edit">Edit</div>
+                    <div onclick="setForm({{json_encode($product)}})" class="edit">Edit</div>
                     <div class="delete">
                         <a href="/admin/delete-product/{{$product->id}}">Delete Product</a>
                         <!--Other way:<a href="{{ route('delete-product', ['product' => $product->id]) }}">Delete Product</a> -->
@@ -39,7 +39,8 @@
             </div>
         @endforeach
             <div id="edit-form" class="edit-form">
-                <form style="display: flex; align-items: center; justify-content: center; flex-flow: column nowrap">
+                <form id="editing-form" style="display: flex; align-items: center; justify-content: center; flex-flow: column nowrap">
+                    <p class="error-display"></p>
                     <img id="closeButton" src="{{asset("/close.png")}}">
                     {{csrf_field()}}
                     <select id="edit_category" class="product_input_special" name="dropdown">
@@ -70,15 +71,64 @@
                 editForm.css("display", "none");
             });
 
-            function logger (product){
-                console.log(product.product_name);
+            function setForm(product){
+                $(".error-display").text("");
+                $("#edit_category").val(product.cat_id);
                 $("#edit_name").val(product.product_name);
                 $("#edit_desc").val(product.product_description);
                 $("#edit_amount").val(product.product_amount);
                 $("#edit_price").val(product.product_price);
 
+                $("#editing-form").off("submit").on("submit",function(event){
+                    event.preventDefault();
+
+                    updateProduct(product);
+                })
+            }
+            function updateProduct(product){
+                let productId = product.id;
+
+                $.ajax({
+                url:"/editProduct/"+productId,
+                    type:"GET",
+                    data:{
+                        "category": $("#edit_category").val(),
+                        "name":$("#edit_name").val(),
+                        "description":$("#edit_desc").val(),
+                        "amount":  $("#edit_amount").val(),
+                        "price": $("#edit_price").val()
+                    },
+                    success:function(response){
+                        console.log(response);
+                        if(response==="ok!"){
+                            location.reload();
+                        }
+                    },
+                    error:function(xhr){
+                        try {
+                            // Parse the JSON response
+                            let response = JSON.parse(xhr.responseText);
+                            // Iterate over the errors object and concatenate all error messages
+                            let errorMessages = [];
+                            for (let key in response.errors) {
+                                if (response.errors.hasOwnProperty(key)) {
+                                    errorMessages.push(response.errors[key][0]);
+                                }
+                            }
+
+                            // Concatenate all error messages into a single string
+                            let errorMessage = errorMessages.join('\n');
+
+                            // Use the error message as needed
+                            $(".error-display").text(errorMessage);
+                        } catch (e) {
+                            console.error('An error occurred while parsing the response:', e);
+                        }
+                    }
+                })
 
             }
+
 
         </script>
 

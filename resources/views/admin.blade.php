@@ -70,6 +70,7 @@
 
             function makeFormVisible(contact){
                 editForm.css("display","flex")
+                $("#errorDisplay").text("");
                 $("#edit-email").val(contact.email);
                 $("#edit-subject").val(contact.subject);
                 $("#edit-message").val(contact.message);

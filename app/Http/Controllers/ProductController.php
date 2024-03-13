@@ -45,4 +45,31 @@ class ProductController extends Controller
 
         return redirect(route("all-products"));
     }
+    public function editProduct(Request $request, $productId){
+
+        $productToEdit=ProductModel::where(["id"=>$productId])->first();
+
+        if(!$productToEdit){
+            echo "failed to find product";
+        }
+
+        $request->validate([
+            "category"=>"required|int",
+            "name"=>"required|string",
+            "description"=>"required|string",
+            "amount"=>"required|int|gte:1",
+            "price"=>"required|int|gte:1"
+            ]);
+
+        $productToEdit->cat_id = $request->input("category");
+        $productToEdit->product_name = $request->input("name");
+        $productToEdit->product_description = $request->input("description");
+        $productToEdit->product_amount = $request->input("amount");
+        $productToEdit->product_price = $request->input("price");
+
+        $productToEdit->save();
+
+        echo "ok!";
+
+    }
 }
