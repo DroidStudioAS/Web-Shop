@@ -96,7 +96,7 @@
                 console.log(contactId);
 
                 $.ajax({
-                    url:"/editContact/"+ encodeURIComponent(contactId),
+                    url:"/admin/editContact/"+ encodeURIComponent(contactId),
                     type:"GET",
                     data:{
                         "email":$("#edit-email").val(),

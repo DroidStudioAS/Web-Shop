@@ -95,7 +95,7 @@
                 let productId = product.id;
 
                 $.ajax({
-                url:"/editProduct/"+productId,
+                url:"/admin/editProduct/"+productId,
                     type:"GET",
                     data:{
                         "category": $("#edit_category").val(),
