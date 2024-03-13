@@ -19,7 +19,6 @@ Route::get("/shop", [\App\Http\Controllers\ShopController::class, 'index']);
 //index is the name of the function to load
 Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'index']);
 //Route::view('/admin/contact', 'admin');
-
 //admin routes
 Route::get('/admin', [\App\Http\Controllers\ContactController::class, 'showAllContacts'])->name("admin-panel");
 Route::post('/admin/post', [\App\Http\Controllers\ProductController::class, "postProduct"]);
@@ -34,3 +33,7 @@ Route::post("/admin/editProduct/{product}",[\App\Http\Controllers\ProductControl
 Route::post("/send-message", [\App\Http\Controllers\ContactController::class, 'sendMessage']);
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
