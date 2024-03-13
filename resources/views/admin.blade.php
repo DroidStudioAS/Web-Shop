@@ -51,7 +51,8 @@
             </div>
 
             <div id="edit-form" class="edit-form">
-                <form style="display: flex; align-items: center; justify-content: center; flex-flow: column nowrap">
+                <form id="editing-form"  style="display: flex; align-items: center; justify-content: center; flex-flow: column nowrap">
+                    <p id="errorDisplay"></p>
                     <img id="closeButton" src="{{asset("/close.png")}}">
                     {{csrf_field()}}
                     <input id="edit-email" value="" class="product_input" placeholder="Email" name="edit-email" type="text">
@@ -73,11 +74,60 @@
                 $("#edit-subject").val(contact.subject);
                 $("#edit-message").val(contact.message);
 
-            }
+                $("#editing-form").off('submit');
+                $("#editing-form").submit(function (event){
+                    event.preventDefault();
 
+                    updateContact(contact);
+                })
+
+            }
             closeButton.off('click').on('click',function(){
                 editForm.css("display", "none");
             });
+
+            function updateContact(contact){
+                contactId = contact.id;
+                console.log(contactId);
+
+                $.ajax({
+                    url:"/editContact/"+ encodeURIComponent(contactId),
+                    type:"GET",
+                    data:{
+                        "email":$("#edit-email").val(),
+                        "subject":$("#edit-subject").val(),
+                        "message":$("#edit-message").val()
+                    },
+                    success:function(response){
+                        if(response==="ok!"){
+                            location.reload();
+                        }
+                    },
+                    error:function(xhr){
+                        try {
+                            // Parse the JSON response
+                            let response = JSON.parse(xhr.responseText);
+
+                            // Iterate over the errors object and concatenate all error messages
+                            let errorMessages = [];
+                            for (let key in response.errors) {
+                                if (response.errors.hasOwnProperty(key)) {
+                                    errorMessages.push(response.errors[key][0]);
+                                }
+                            }
+
+                            // Concatenate all error messages into a single string
+                            let errorMessage = errorMessages.join('\n');
+
+                            // Use the error message as needed
+                            $("#errorDisplay").text(errorMessage);
+                        } catch (e) {
+                            console.error('An error occurred while parsing the response:', e);
+                        }
+                    }
+                })
+            }
+
 
         </script>
     @endsection
