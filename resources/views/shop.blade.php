@@ -89,9 +89,9 @@
         display: flex;
         flex-flow: column nowrap;
         justify-content: flex-start;
-        align-items: start;
+        align-items: center;
 
-        width: 3vw;
+        width: 4vw;
         opacity: 0;
 
         transition: 1s ease;
@@ -114,13 +114,32 @@
     }
 
     @media (max-width: 850px) {
-        .full_container {
+        .category-container{
+            align-items: center;
+            justify-content: center;
+
+        }
+        .full_container{
             width: 70vw;
+            margin-left: 5vw;
+        }
+        .column_container{
+            width: 50vw;
+        }
+        .column_container img{
+            width: 50vw;
+        }
+        .product_information{
+            width: 50vw;
+        }
+        .action_buttons{
+            width: 20vw;
+        }
+        .action_button{
+            width: 20vw;
         }
 
-        .product-category img {
-            width: 70vw;
-        }
+
     }
 </style>
 
