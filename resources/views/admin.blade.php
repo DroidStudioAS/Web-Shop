@@ -51,13 +51,17 @@
             </div>
 
             <div id="edit-form" class="edit-form">
+                <h1>Edit Contact:</h1>
                 <form id="editing-form"  style="display: flex; align-items: center; justify-content: center; flex-flow: column nowrap">
                     <p id="errorDisplay"></p>
                     <img id="closeButton" src="{{asset("/close.png")}}">
                     {{csrf_field()}}
+                    <label for="edit-email">Email</label>
                     <input id="edit-email" value="" class="product_input" placeholder="Email" name="edit-email" type="text">
+                    <label for="edit-subject">Subject</label>
                     <input id="edit-subject" value="" class="product_input" placeholder="Subject" name="edit-subject" type="text">
-                    <textarea id="edit-message" class="product_input" placeholder="Message" name="edit-message"></textarea>
+                    <label for="edit-message">Message</label>
+                    <textarea id="edit-message" class="form_text_area" placeholder="Message" name="edit-message"></textarea>
                     <input class="submit" type="submit" value="Upload">
                 </form>
 
@@ -149,7 +153,8 @@
 
     }
     .product_input,
-    .product_input_special{
+    .product_input_special,
+    .form_text_area{
         width: 40vw;
         padding: 12px 10px 12px 10px;
         background-color: black;
@@ -164,6 +169,10 @@
     }
     .product_input_special{
         width: 20vw;
+    }
+    .form_text_area{
+        resize: none;
+        height: 20vh;
     }
     .error-message{
         color: red;
@@ -209,18 +218,20 @@
     /*******Edit Form Styles*******/
     .edit-form{
 
-        width: 70vw;
+        width: 60vw;
         height: 80vh;
         background-color: black;
 
         position: fixed;
         top: 10vh;
-        left: 15vw;
+        left: 20vw;
 
         display: none;
         flex-flow: column nowrap;
         justify-content: center;
         align-items: center;
+
+        border-radius: 12px;
 
     }
     .edit-form img{

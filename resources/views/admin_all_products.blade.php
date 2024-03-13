@@ -39,19 +39,25 @@
             </div>
         @endforeach
             <div id="edit-form" class="edit-form">
+                <h1>Edit Product:</h1>
                 <form id="editing-form" style="display: flex; align-items: center; justify-content: center; flex-flow: column nowrap">
                     <p class="error-display"></p>
                     <img id="closeButton" src="{{asset("/close.png")}}">
                     {{csrf_field()}}
+                    <label for="dropdown">Category</label>
                     <select id="edit_category" class="product_input_special" name="dropdown">
                         <option name="product_category_input" value="1">Nike</option>
                         <option name="product_category_input" value="3">Adidas</option>
                         <option name="product_category_input" value="2">Rebook</option>
                     </select>
-                    <input id="edit_name" value="{{old("product_name")}}" class="product_input" placeholder="Model Name" name="product_name" type="text">
-                    <input id="edit_desc" value="{{old("product_description")}}" class="product_input_special" placeholder="Model_Description" name="product_description" type="text">
-                    <input id="edit_amount" value="{{old("product_amount")}}" class="product_input" placeholder="How Many Available" name="product_amount" type="number">
-                    <input id="edit_price" value="{{old("product_price")}}" class="product_input" placeholder="Product Price" name="product_price" type="number">
+                    <label for="product_name">Name</label>
+                    <input id="edit_name"  class="product_input" placeholder="Model Name" name="product_name" type="text">
+                    <label for="product_description">Description</label>
+                    <textarea id="edit_desc" class="form_text_area" placeholder="Model_Description" name="product_description"></textarea>
+                    <label for="product_amount">Amount In Stock</label>
+                    <input id="edit_amount"  class="product_input" placeholder="How Many Available" name="product_amount" type="number">
+                    <label for="product_price">Price</label>
+                    <input id="edit_price"  class="product_input" placeholder="Product Price" name="product_price" type="number">
                     <input  class="submit" type="submit" value="Upload">
                 </form>
             </div>
@@ -190,18 +196,20 @@
     /*******Edit Form Styles*******/
     .edit-form{
 
-        width: 70vw;
-        height: 80vh;
+        width: 60vw;
+        height: 90vh;
         background-color: black;
 
         position: fixed;
-        top: 10vh;
-        left: 15vw;
+        top: 5vh;
+        left: 20vw;
 
         display: none;
         flex-flow: column nowrap;
         justify-content: center;
         align-items: center;
+
+        text-align: center;
 
     }
     .edit-form img{
@@ -213,7 +221,8 @@
         border-radius: 50px;
     }
     .product_input,
-    .product_input_special{
+    .product_input_special,
+    .form_text_area{
         width: 40vw;
         padding: 12px 10px 12px 10px;
         background-color: black;
@@ -228,6 +237,10 @@
     }
     .product_input_special{
         width: 20vw;
+    }
+    .form_text_area{
+        resize: none;
+        height: 10vh;
     }
 
 </style>
