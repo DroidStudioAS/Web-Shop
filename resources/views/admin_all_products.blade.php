@@ -242,6 +242,9 @@
         resize: none;
         height: 10vh;
     }
+    .error-display{
+        color: red;
+    }
 
 </style>
 

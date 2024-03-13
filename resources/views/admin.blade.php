@@ -53,7 +53,7 @@
             <div id="edit-form" class="edit-form">
                 <h1>Edit Contact:</h1>
                 <form id="editing-form"  style="display: flex; align-items: center; justify-content: center; flex-flow: column nowrap">
-                    <p id="errorDisplay"></p>
+                    <p class="error-display" id="errorDisplay"></p>
                     <img id="closeButton" src="{{asset("/close.png")}}">
                     {{csrf_field()}}
                     <label for="edit-email">Email</label>
@@ -241,5 +241,8 @@
 
         background-color: white;
         border-radius: 50px;
+    }
+    .error-display{
+        color: red;
     }
 </style>
