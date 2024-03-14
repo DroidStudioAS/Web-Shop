@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
+use App\Http\Middleware\AdminMiddelware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,7 +29,7 @@ Route::get('/contact', [ContactController::class, 'index']);
 Route::post("/send-message", [ContactController::class, 'sendMessage']);
 
 /****Admin Routes****/
-Route::middleware('auth')->prefix('admin')->group(function(){
+Route::middleware(['auth', AdminMiddelware::class])->prefix('admin')->group(function(){
     Route::get('/', [ContactController::class, 'showAllContacts'])
         ->name("admin-panel");
     Route::post('/post', [ProductController::class, "postProduct"]);
