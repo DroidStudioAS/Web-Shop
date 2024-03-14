@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,25 +14,33 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 //welcome stranica
 Route::get('/',[\App\Http\Controllers\HomeController::class, 'index']);
 Route::view("/about",'about');
 Route::get("/shop", [\App\Http\Controllers\ShopController::class, 'index']);
 //index is the name of the function to load
-Route::get('/contact', [\App\Http\Controllers\ContactController::class, 'index']);
+Route::get('/contact', [ContactController::class, 'index']);
 //Route::view('/admin/contact', 'admin');
-//admin routes
-Route::get('/admin', [\App\Http\Controllers\ContactController::class, 'showAllContacts'])->name("admin-panel");
-Route::post('/admin/post', [\App\Http\Controllers\ProductController::class, "postProduct"]);
-Route::get("/admin/all-products",[\App\Http\Controllers\ProductController::class,"index"])->name("all-products");
-Route::get("/admin/delete-product/{product}", [\App\Http\Controllers\ProductController::class, "deleteProduct"])->name("delete-product");
-Route::get("admin/delete-contact/{contact}",[\App\Http\Controllers\ContactController::class,"deleteContact"])->name("delete-contact");
-Route::post("/admin/editContact/{contact}",[\App\Http\Controllers\ContactController::class,'editContact'])->name("edit-contact");
-Route::post("/admin/editProduct/{product}",[\App\Http\Controllers\ProductController::class,'editProduct'])->name("edit-product");
-//Route::post("/admin/test",[\App\Http\Controllers\ProductController::class,"editProduct"]);
+
 
 //post routes
-Route::post("/send-message", [\App\Http\Controllers\ContactController::class, 'sendMessage']);
+Route::post("/send-message", [ContactController::class, 'sendMessage']);
+
+/****Admin Routes****/
+Route::middleware('auth')->prefix('admin')->group(function(){
+    Route::get('/', [ContactController::class, 'showAllContacts'])
+        ->name("admin-panel");
+    Route::post('/post', [ProductController::class, "postProduct"]);
+    Route::get("/all-products",[ProductController::class,"index"])->name("all-products");
+
+    Route::get("/delete-product/{product}", [ProductController::class, "deleteProduct"])->name("delete-product");
+    Route::get("/delete-contact/{contact}",[ContactController::class,"deleteContact"])->name("delete-contact");
+
+    Route::post("/editContact/{contact}",[ContactController::class,'editContact'])->name("edit-contact");
+    Route::post("/editProduct/{product}",[ProductController::class,'editProduct'])->name("edit-product");
+});
+/****Admin Routes End****/
 
 
 
