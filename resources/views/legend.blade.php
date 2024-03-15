@@ -11,6 +11,7 @@
     <header>
         @include('navigation')
     </header>
+
     <body>
     <!--Content space-->
     <!--Command to display section-->

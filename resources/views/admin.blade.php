@@ -89,7 +89,7 @@
             closeButton.off('click').on('click',function(){
                 editForm.css("display", "none");
             });
-
+            /******ASYNC function to update contacts*******/
             function updateContact(contact){
                 contactId = contact.id;
                 console.log(contactId);
@@ -104,7 +104,7 @@
                         "message":$("#edit-message").val()
                     },
                     success:function(response){
-                        if(response==="ok!"){
+                        if(response.success==="ok!"){
                             location.reload();
                         }
                     },

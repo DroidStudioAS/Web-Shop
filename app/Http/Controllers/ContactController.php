@@ -60,7 +60,9 @@ class ContactController extends Controller
         // Save the changes to the contact
         $contact->save();
 
-        echo "ok!";
-    }
+        return response()->json([
+            "success"=>"ok!"
+        ]);
 
+    }
 }
